@@ -23,8 +23,9 @@
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
 
 
-hl.monitor({ output = "HDMI-A-2", mode = "1920x10180@165", position = "0x0", scale = 1})
+hl.monitor({ output = "HDMI-A-2", mode = "1920x10180@165", position = "0x0", scale = 1, vrr = 2 })
 hl.monitor({ output = "HDMI-A-1", mode = "1920x10180@60", position = "-1920x0", scale = 1})
+
 
 ---------------------
 ---- MY PROGRAMS ----
@@ -34,6 +35,15 @@ hl.monitor({ output = "HDMI-A-1", mode = "1920x10180@60", position = "-1920x0", 
 local terminal    = "kitty"
 local fileManager = "dolphin"
 
+hl.bind("SUPER + X", function ()
+    if hl.get_workspace("special:minimized") then
+        hl.dispatch(hl.dsp.window.move({ workspace = hl.get_active_workspace(), window = "tag:minimized" }))
+        hl.dispatch(hl.dsp.window.clear_tags({ window = "tag:minimized" }))
+    else
+        hl.dispatch(hl.dsp.window.tag({ tag = "minimized", window = hl.get_active_window() }))
+        hl.dispatch(hl.dsp.window.move({ workspace = "special:minimized", follow = false }))
+    end
+end)
 
 -------------------
 ---- AUTOSTART ----
@@ -52,6 +62,7 @@ local fileManager = "dolphin"
 --
 hl.on("hyprland.start", function ()
     hl.exec_cmd("hyprpaper")
+    hl.exec_cmd("qs")
 end)
 
 
@@ -93,7 +104,7 @@ hl.env("XCURSOR_SIZE", "24")
 hl.config({
     general = {
         gaps_in  = 2,
-        gaps_out = 4,
+        gaps_out = 2,
 
         border_size = 1,
 
@@ -267,10 +278,14 @@ local closeWindowBind = hl.bind(mainMod .. " + C", hl.dsp.window.close())
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("kitty yazi"))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
-hl.bind("ALT + SPACE", hl.dsp.exec_cmd("exec wofi --show run"))
+hl.bind("ALT + SPACE", hl.dsp.exec_cmd("exec fuzzel"))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd("helium"))    -- dwindle only
+
+hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd('grim - | satty -f - --copy-command wl-copy -o "~/Images/%Y%m%d_%H%M%S.png"'))
+
+
 
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))
@@ -279,17 +294,28 @@ hl.bind(mainMod .. " + up",    hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + down",  hl.dsp.focus({ direction = "down" }))
 
 
--- Switch workspaces with mainMod + [0-9]
--- Move active window to a workspace with mainMod + SHIFT + [0-9]
+local wsKeys = {
+    [1] = "ampersand",
+    [2] = "eacute",
+    [3] = "quotedbl",
+    [4] = "apostrophe",
+    [5] = "parenleft",
+    [6] = "minus",
+    [7] = "egrave",
+    [8] = "underscore",
+    [9] = "ccedilla",
+    [10] = "agrave", -- this is "0" on AZERTY
+}
+
 for i = 1, 10 do
-    local key = i % 10 -- 10 maps to key 0
-    hl.bind(mainMod .. " + " .. key,             hl.dsp.focus({ workspace = i}))
-    hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
+    local key = wsKeys[i]
+    hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
+    hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
 end
 
 -- Example special workspace (scratchpad)
-hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
+--hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
+--hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
 
 -- Scroll through existing workspaces with mainMod + scroll
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
