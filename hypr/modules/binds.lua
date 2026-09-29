@@ -38,8 +38,15 @@ hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
 
 -- Move/resize windows with mainMod + LMB/RMB and dragging
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
-hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
+
+local resize = hl.dsp.window.resize
+local step = 20
+hl.bind(mainMod .. " + mouse:273", resize(), { mouse = true })
+hl.bind(mainMod .. " + SHIFT + left", resize({ x = -step, y = 0, relative = true }), { repeating = true })
+hl.bind(mainMod .. " + SHIFT + right", resize({ x = step, y = 0, relative = true }), { repeating = true })
+hl.bind(mainMod .. " + SHIFT + up", resize({ x = 0, y = -step, relative = true }), { repeating = true })
+hl.bind(mainMod .. " + SHIFT + down", resize({ x = 0, y = step, relative = true }), { repeating = true })
 
 
 -- Move focus with mainMod + arrow keys
