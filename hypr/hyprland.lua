@@ -276,15 +276,16 @@ local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 hl.bind(mainMod .. " + F", hl.dsp.exec_cmd(terminal))
 local closeWindowBind = hl.bind(mainMod .. " + C", hl.dsp.window.close())
 -- closeWindowBind:set_enabled(false)
-hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
+--hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("kitty yazi"))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind("ALT + SPACE", hl.dsp.exec_cmd("exec fuzzel"))
-hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
+--hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd("helium"))    -- dwindle only
 
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd('grim - | satty -f - --copy-command wl-copy -o "~/Images/%Y%m%d_%H%M%S.png"'))
+hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("exec hyprshot -m region --clipboard-only"))
+hl.bind("PRINT", hl.dsp.exec_cmd("exec hyprshot -m output"))
 
 
 
