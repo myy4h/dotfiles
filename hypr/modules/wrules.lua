@@ -1,6 +1,6 @@
 hl.window_rule({
     match = { class = "Spotify" },
-    workspace = "10",
+    workspace = "8",
     float = true,
     size = { 1400, 850 },
     move = { 220, 100 },

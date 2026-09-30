@@ -7,5 +7,5 @@ for i = 1, 7 do
 end
 
 for i = 8, 10 do
-    hl.workspace_rule({ workspace = tostring(i), monitor = left, default = i == 6, persistent = true })
+    hl.workspace_rule({ workspace = tostring(i), monitor = left, default = i == 8, persistent = true })
 end

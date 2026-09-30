@@ -29,10 +29,10 @@ hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit")) -- dwindle only
 
-hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("hyprshot -m region --clipboard-only"))
+hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("hyprshot -m region --clipboard-only"))
 hl.bind("PRINT", hl.dsp.exec_cmd("hyprshot -m active --mode output"))
 
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd(
+hl.bind(mainMod .. " + S", hl.dsp.exec_cmd(
   'hyprshot -m region --raw | satty --filename - --early-exit --copy-command wl-copy --output-filename "$HOME/Images/Screenshots/satty-$(date +%Y%m%d-%H%M%S).png"'
 ))
 
