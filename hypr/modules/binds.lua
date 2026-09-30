@@ -16,10 +16,10 @@ end)
 
 hl.bind(mainMod .. " + F", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(browser))
-hl.bind("ALT + SPACE", hl.dsp.exec_cmd("exec fuzzel"))
+hl.bind("ALT + SPACE", hl.dsp.exec_cmd("fuzzel"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("kitty yazi"))
 
-
+hl.bind(mainMod .. " + O", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle"}))
 
 local closeWindowBind = hl.bind(mainMod .. " + C", hl.dsp.window.close())
 -- closeWindowBind:set_enabled(false)
@@ -29,8 +29,12 @@ hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit")) -- dwindle only
 
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("exec hyprshot -m region --clipboard-only"))
-hl.bind("PRINT", hl.dsp.exec_cmd("exec hyprshot -m output"))
+hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("hyprshot -m region --clipboard-only"))
+hl.bind("PRINT", hl.dsp.exec_cmd("hyprshot -m active --mode output"))
+
+hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd(
+  'hyprshot -m region --raw | satty --filename - --early-exit --copy-command wl-copy --output-filename "$HOME/Images/Screenshots/satty-$(date +%Y%m%d-%H%M%S).png"'
+))
 
 -- Scroll through existing workspaces with mainMod + scroll
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))

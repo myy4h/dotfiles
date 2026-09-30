@@ -16,6 +16,7 @@ end)
 hl.env("XCURSOR_THEME", "miku-cursor-linux")
 hl.env("XCURSOR_SIZE", "24")
 
+hl.env("HYPRSHOT_DIR", "/home/fayeiha/Images/Screenshots")
 
 
 -----------------------
