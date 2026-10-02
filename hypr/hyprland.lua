@@ -18,6 +18,8 @@ hl.env("XCURSOR_SIZE", "24")
 
 hl.env("HYPRSHOT_DIR", "/home/fayeiha/Images/Screenshots")
 
+hl.env("EDITOR", "nvim")
+hl.env("VISUAL", "nvim")
 
 -----------------------
 ----- PERMISSIONS -----

@@ -9,3 +9,5 @@ end
 for i = 8, 10 do
     hl.workspace_rule({ workspace = tostring(i), monitor = left, default = i == 8, persistent = true })
 end
+
+hl.workspace_rule({workspace = "name:game", monitor = main, default = false, persistent  = false})

@@ -45,6 +45,18 @@ id: root
 	    }
 	}
 
+	Rectangle {
+        property var ws: Hyprland.workspaces.values.find(w => w.name === "game")
+        width: 19; height: 19; radius:2
+        visible: ws !== undefined          // remove this line to always show it
+        color: Hyprland.focusedWorkspace?.name === "game" ? "#a970c1" : "#585b70"
+        Text { anchors.centerIn: parent; text: "g"; color: "white"; font { pixelSize: 12; bold: true} }
+        MouseArea {
+            anchors.fill: parent
+            onClicked: Hyprland.dispatch("workspace name:game")
+        }
+    }
+
 	Item { Layout.fillWidth: true }
 
 	Text {
