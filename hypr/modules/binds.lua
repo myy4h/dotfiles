@@ -5,17 +5,18 @@ local browser = "helium"
 
 --mimic minimized
 hl.bind(mainMod .. " + X", function()
-    if hl.get_workspace("special:minimized") then
-        hl.dispatch(hl.dsp.window.move({ workspace = hl.get_active_workspace(), window = "tag:minimized" }))
-        hl.dispatch(hl.dsp.window.clear_tags({ window = "tag:minimized" }))
-    else
-        hl.dispatch(hl.dsp.window.tag({ tag = "minimized", window = hl.get_active_window() }))
-        hl.dispatch(hl.dsp.window.move({ workspace = "special:minimized", follow = false }))
-    end
+	if hl.get_workspace("special:minimized") then
+		hl.dispatch(hl.dsp.window.move({ workspace = hl.get_active_workspace(), window = "tag:minimized" }))
+		hl.dispatch(hl.dsp.window.clear_tags({ window = "tag:minimized" }))
+	else
+		hl.dispatch(hl.dsp.window.tag({ tag = "minimized", window = hl.get_active_window() }))
+		hl.dispatch(hl.dsp.window.move({ workspace = "special:minimized", follow = false }))
+	end
 end)
 
 hl.bind(mainMod .. " + F", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(browser))
+hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd("QT_QPA_PLATFORM=xcb qutebrowser"))
 hl.bind("ALT + SPACE", hl.dsp.exec_cmd("fuzzel"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("kitty yazi"))
 
@@ -26,7 +27,7 @@ hl.bind(mainMod .. " + O", hl.dsp.window.fullscreen({ mode = "maximized", action
 local closeWindowBind = hl.bind(mainMod .. " + C", hl.dsp.window.close())
 -- closeWindowBind:set_enabled(false)
 hl.bind(mainMod .. " + M",
-    hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
+	hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit")) -- dwindle only
@@ -35,7 +36,7 @@ hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("hyprshot -m region --clipboa
 hl.bind("PRINT", hl.dsp.exec_cmd("hyprshot -m active --mode output"))
 
 hl.bind(mainMod .. " + S", hl.dsp.exec_cmd(
-    'hyprshot -m region --raw | satty --filename - --early-exit --copy-command wl-copy --output-filename "$HOME/Images/Screenshots/satty-$(date +%Y%m%d-%H%M%S).png"'
+	'hyprshot -m region --raw | satty --filename - --early-exit --copy-command wl-copy --output-filename "$HOME/Images/Screenshots/satty-$(date +%Y%m%d-%H%M%S).png"'
 ))
 
 -- Scroll through existing workspaces with mainMod + scroll
@@ -63,22 +64,22 @@ hl.bind(mainMod .. " + down", hl.dsp.focus({ direction = "down" }))
 
 
 local wsKeys = {
-    [1] = "ampersand",
-    [2] = "eacute",
-    [3] = "quotedbl",
-    [4] = "apostrophe",
-    [5] = "parenleft",
-    [6] = "minus",
-    [7] = "egrave",
-    [8] = "underscore",
-    [9] = "ccedilla",
-    [10] = "agrave",
+	[1] = "ampersand",
+	[2] = "eacute",
+	[3] = "quotedbl",
+	[4] = "apostrophe",
+	[5] = "parenleft",
+	[6] = "minus",
+	[7] = "egrave",
+	[8] = "underscore",
+	[9] = "ccedilla",
+	[10] = "agrave",
 }
 
 for i = 1, 10 do
-    local key = wsKeys[i]
-    hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
-    hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+	local key = wsKeys[i]
+	hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
+	hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
 end
 
 hl.bind(mainMod .. " + G", hl.dsp.focus({ workspace = "name:game" }))

@@ -6,10 +6,10 @@ return {
       formatting = { command = { 'nixfmt' } },
       options = {
         nixos = {
-          expr = '(builtins.getFlake "/path/to/flake").nixosConfigurations.HOSTNAME.options',
+          expr = '(builtins.getFlake "/etc/nixos/flake.nix").nixosConfigurations.HOSTNAME.options',
         },
         home_manager = {
-          expr = '(builtins.getFlake "/path/to/flake").homeConfigurations."USER@HOSTNAME".options',
+          expr = '(builtins.getFlake "/etc/nixos/flake.nix").homeConfigurations."fayeiha@nixos".options',
         },
       },
     },
