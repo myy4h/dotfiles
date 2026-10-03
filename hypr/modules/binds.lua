@@ -16,6 +16,7 @@ end)
 
 hl.bind(mainMod .. " + F", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(browser))
+hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("kitty btop"))
 hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd("QT_QPA_PLATFORM=xcb qutebrowser"))
 hl.bind("ALT + SPACE", hl.dsp.exec_cmd("fuzzel"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("kitty yazi"))
