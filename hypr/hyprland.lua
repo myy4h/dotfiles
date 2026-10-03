@@ -19,7 +19,6 @@ hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRSHOT_DIR", "/home/fayeiha/Images/Screenshots")
 
 hl.env("EDITOR", "nvim")
-hl.env("VISUAL", "nvim")
 
 -----------------------
 ----- PERMISSIONS -----
@@ -50,7 +49,7 @@ hl.config({
         gaps_in          = 2,
         gaps_out         = 2,
 
-        border_size      = 1,
+	border_size      = 1,
 
         col              = {
             active_border   = "rgb(a970c1)",
@@ -68,8 +67,8 @@ hl.config({
     },
 
     decoration = {
-        rounding         = 2,
-        rounding_power   = 20,
+        rounding         = 0,
+        --rounding_power   = 20,
 
         -- Change transparency of focused and unfocused windows
         active_opacity   = 1.0,
@@ -77,7 +76,7 @@ hl.config({
 
         shadow           = {
             enabled      = true,
-            range        = 4,
+            range        = 3,
             render_power = 3,
             color        = 0xee1a1a1a,
         },
@@ -85,7 +84,7 @@ hl.config({
         blur             = {
             enabled  = true,
             size     = 3,
-            passes   = 1,
+            passes   = 3,
             vibrancy = 0.1696,
         },
     },

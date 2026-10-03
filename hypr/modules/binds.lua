@@ -19,7 +19,9 @@ hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(browser))
 hl.bind("ALT + SPACE", hl.dsp.exec_cmd("fuzzel"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("kitty yazi"))
 
-hl.bind(mainMod .. " + O", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle"}))
+hl.bind(mainMod .. " + SHIFT + O", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }))
+hl.bind(mainMod .. " + O", hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" }))
+
 
 local closeWindowBind = hl.bind(mainMod .. " + C", hl.dsp.window.close())
 -- closeWindowBind:set_enabled(false)
@@ -33,7 +35,7 @@ hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("hyprshot -m region --clipboa
 hl.bind("PRINT", hl.dsp.exec_cmd("hyprshot -m active --mode output"))
 
 hl.bind(mainMod .. " + S", hl.dsp.exec_cmd(
-  'hyprshot -m region --raw | satty --filename - --early-exit --copy-command wl-copy --output-filename "$HOME/Images/Screenshots/satty-$(date +%Y%m%d-%H%M%S).png"'
+    'hyprshot -m region --raw | satty --filename - --early-exit --copy-command wl-copy --output-filename "$HOME/Images/Screenshots/satty-$(date +%Y%m%d-%H%M%S).png"'
 ))
 
 -- Scroll through existing workspaces with mainMod + scroll
@@ -82,4 +84,5 @@ end
 hl.bind(mainMod .. " + G", hl.dsp.focus({ workspace = "name:game" }))
 hl.bind(mainMod .. " + SHIFT + G", hl.dsp.window.move({ workspace = "name:game" }))
 
-
+hl.bind(mainMod .. " + D", hl.dsp.focus({ workspace = "name:dev" }))
+hl.bind(mainMod .. " + SHIFT + D", hl.dsp.window.move({ workspace = "name:dev" }))
