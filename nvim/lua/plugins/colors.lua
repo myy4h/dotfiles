@@ -1,8 +1,8 @@
 return {
     {
-        "rebelot/kanagawa.nvim",
+        "thesimonho/kanagawa-paper.nvim",
         config = function()
-            vim.cmd.colorscheme "kanagawa"
+            vim.cmd.colorscheme "kanagawa-paper-ink"
         end
     },
 }
