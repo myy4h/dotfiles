@@ -18,7 +18,7 @@ id: root
     property int fontSize: 14
 
 
-    anchors.top: true
+    anchors.bottom: true
     anchors.left: true
     anchors.right: true
     implicitHeight: 25
