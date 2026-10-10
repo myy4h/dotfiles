@@ -5,7 +5,7 @@ return {
     config = function()
         local sitter = { "lua", "vim", "vimdoc", "bash", "python", "javascript", "markdown", "nix", "c", "cpp", "java",
             "tsx",
-            "html", "css", "svelte", "typescript" }
+            "html", "css", "svelte", "typescript", "qmljs", "go" }
 
         require("nvim-treesitter").setup()
 

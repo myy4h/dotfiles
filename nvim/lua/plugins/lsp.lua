@@ -11,7 +11,8 @@ return {
             "svelte",
             "clangd",
             "jdtls",
-            "html"
+            "emmet_language_server",
+            "qmlls"
         }),
     }
 }
