@@ -20,6 +20,7 @@ hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("kitty btop"))
 hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd("QTWEBENGINE_FORCE_USE_GBM=0 qutebrowser"))
 hl.bind("ALT + SPACE", hl.dsp.exec_cmd("fuzzel"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("kitty yazi"))
+hl.bind(mainMod .. "+ SHIFT + E", hl.dsp.exec_cmd("dolphin"))
 
 hl.bind(mainMod .. " + SHIFT + O", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }))
 hl.bind(mainMod .. " + O", hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" }))

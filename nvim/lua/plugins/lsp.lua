@@ -12,7 +12,8 @@ return {
             "clangd",
             "jdtls",
             "emmet_language_server",
-            "qmlls"
+            "qmlls",
+            "gopls"
         }),
     }
 }
