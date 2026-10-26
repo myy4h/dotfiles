@@ -6,6 +6,13 @@ hl.window_rule({
     move = { 220, 100 },
 })
 
+hl.window_rule({
+    match = { class = "org.strawberrymusicplayer.strawberry" },
+    workspace = "8",
+    float = true,
+    size = { 1400, 850 },
+    move = { 220, 100 },
+})
 hl.window_rule({ match = { class = "vesktop" }, workspace = "7" })
 hl.window_rule({ match = { class = "steam" }, workspace = "6" })
 
