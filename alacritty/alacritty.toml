@@ -1,0 +1,22 @@
+[general]
+import = [
+    "~/.config/alacritty/themes/gnomeish.toml"
+]
+[terminal]
+shell = "/etc/profiles/per-user/fayeiha/bin/zsh"
+[window]
+blur = true
+opacity = 0.8
+[font]
+size = 12
+ 
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+
+[keyboard]
+bindings = [
+  { key = "C", mods = "Control|Shift", action = "Copy" },
+  { key = "V", mods = "Control|Shift", action = "Paste" },
+  { key = "Q", mods = "Control|Shift", action = "Quit" },
+  { key = "F", mods = "Control|Shift", action = "ToggleFullscreen" },
+]

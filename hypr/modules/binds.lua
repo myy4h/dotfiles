@@ -1,6 +1,6 @@
 local mainMod = "SUPER"
 
-local terminal = "kitty"
+local terminal = "alacritty"
 local browser = "helium"
 
 --mimic minimized
@@ -16,10 +16,10 @@ end)
 
 hl.bind(mainMod .. " + F", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(browser))
-hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("kitty btop"))
+hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("alacritty -e btop"))
 hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd("QTWEBENGINE_FORCE_USE_GBM=0 qutebrowser"))
 hl.bind("ALT + SPACE", hl.dsp.exec_cmd("fuzzel"))
-hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("kitty yazi"))
+hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("alacritty -e yazi"))
 hl.bind(mainMod .. "+ SHIFT + E", hl.dsp.exec_cmd("dolphin"))
 
 hl.bind(mainMod .. " + SHIFT + O", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }))
